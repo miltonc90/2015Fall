@@ -83,7 +83,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      $(".progress-bar").animate({width: "75%"}, 2000);
+    
+      (function(){
+        $(".progress-bar").css({width: $(".progress").width() * .75});
+        
+        SomeName = function (){
+          $(".progress-bar").css({width: MyObject.intendedWidth}, 2000);
+        }
+        
+        var MyObject = {
+          hello: "world",
+          intendedWidth: $(".progress-bar").width() * .75
+        };
+        
+        
+      })()
+      //SomeName();
+      
+      setTimeout( SomeName, 1000);
     </script>
   </body>
 </html>
